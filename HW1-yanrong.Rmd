@@ -69,8 +69,7 @@ $PR_{1k}$為未被擋修學生的排名，$PR_{0k}$為被擋修學生的排名�
 $$PR_{k}=PR_{0k}+(PR_{1k}-PR_{0k}) T_{k}$$
 k泛指任何人，上式表示每一個沒有被的擋修的人（即T=1)，他的實際成績是他的「被擋修的成績」再加上「沒有被擋修的效果」所造成。
 
-令$\delta_{k}=PR_{1k}-PR_{0k}$代表每個人有沒有被擋修的成績效果，
-假設每個人沒有被擋修的效果相同$\delta_{k}=\delta$,則：
+令$\delta_{k}=PR_{1k}-PR_{0k}$代表每個人有沒有被擋修的成績效果，假設每個人沒有被擋修的效果相同$\delta_{k}=\delta$則：
 $$PR_{k}=PR_{0k}-\delta T_{k}$$
 </td></tr></table>
 
@@ -203,16 +202,14 @@ $$\hat{\beta}_1=\bar{y}_1-\bar{y}_0,$$
 &nbsp;
 
 <table><tr><td bgcolor=#F5F5DC>
-\begin{equation}
-\begin{aligned}
+\begin{align}
 \hat{\beta}_1
 &=\frac{\sum_{i=1}^N (x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^N (x_i-\bar{x})^2}=\frac{\sum_{i,x_i=1}^N (1-\frac{n_1}{n})(y_i-\bar{y})+\sum_{i,x_i=0}^N (0-\frac{n_1}{n})(y_i-\bar{y})}{\sum_{i,x_i=1}^N (1-\frac{n_1}{n})^2+\sum_{i,x_i=0}^N (0-\frac{n_1}{n})^2}\\
 \\
 &=\frac{(\frac{n_0}{n})\sum_{i,x_i=1}^N(y_i-\bar{y})+(\frac{n_1}{n})\sum_{i,x_i=0}^N(y_i-\bar{y})}{n_1(\frac{n_0}{n})^2+n_0(\frac{n_1}{n})^2}=\frac{(\frac{n_0}{n})\sum_{i,x_i=1}^N y_i-(\frac{n_1}{n})\sum_{i,x_i=0}^N y_i}{\frac{n_1 n_0^2+n_0 n_1^2}{n^2}}\\
 \\
 &=\frac{(\frac{\sum_{i,x_i=1}^N y_i}{n_1})-(\frac{\sum_{i,x_i=0}^N y_i}{n_0})}{\frac{n_0+ n_1}{n}}=\bar{y_1}-\bar{y_0}
-\end{aligned}
-\end{equation}
+\end{align}
 </td></tr></table>
 
 ## 2.2
@@ -227,19 +224,19 @@ $$\hat{\beta}_1=\bar{y}_1-\bar{y}_0,$$
 
 <table><tr><td bgcolor=#F5F5DC>
 
-\begin{aligned}
+\begin{align}
 (a)\,\,\,\,\,\,E(\hat{\beta_1})&=E(\bar{y_1}-\bar{y_0})=E(\bar{y_1})-E(\bar{y_0})=E(\frac{\sum_{i,x_i=1}^Ny_i}{n_1})-E(\frac{\sum_{i,x_i=0}^Ny_i}{n_0})\\
 \\
 &=(\frac{1}{n_1})\sum_{i,x_i=1}^N E(y_1)-(\frac{1}{n_0})\sum_{i,x_i=0}^N E(y_0)=(\beta_0+\beta_1)-\beta_0=\beta_1\\
 \\
-(b)\,\,V(\hat{\beta_1}|x)&=V(\bar{y_1}-\bar{y_0}|x)=V(\bar{y_1})+V(\bar{y_2})-2cov(\bar{y_1},\bar{y_2})\\
+(b)\,\,V(\hat{\beta_1}|x)&=V(\bar{y_1}-\bar{y_0}|x)=V(\bar{y_1})+V(\bar{y_0})-2cov(\bar{y_1},\bar{y_0}),\,cov(\bar{y_1},\bar{y_0})=0 \\
 \\
-&=(\frac{1}{n_1^2})n_1\sigma^2+(\frac{1}{n_0^2})n_0\sigma^2=\frac{n}{n_1+n_2}\sigma^2\\
+&=(\frac{1}{n_1^2})n_1\sigma^2+(\frac{1}{n_0^2})n_0\sigma^2=\frac{n}{n_1n_0}\sigma^2\\
 \\
 (c)\,\,V(\hat{\beta_1}|x)&=V(\bar{y_1}-\bar{y_0}|x)=V(\bar{y_1})+V(\bar{y_2})-2cov(\bar{y_1},\bar{y_2})\\
 \\
 &=\frac{\sigma_1^2}{n_1}+\frac{\sigma_0^2}{n_0}
-\end{aligned}
+\end{align}
 </td></tr></table>
 
 ## 2.3 三明治表示式
@@ -250,11 +247,11 @@ $Y=X\beta+\epsilon$
 &nbsp;
 
 <table><tr><td bgcolor=#F5F5DC>
-\begin{aligned}
+\begin{align}
 Var(\epsilon)&=E(\epsilon\epsilon')=\sigma^2I_n=\sum\\
 \\
 Var(\hat{\beta})&=E\{[\hat{\beta}-E(\hat{\beta})][\hat{\beta}-E(\hat{\beta})]\}=(x'x)^{-1}x'E(\epsilon\epsilon')x(x'x)^{-1}\\
 \\
-&=(x'x)^{-1}x'\sum\,(x'x)^{-1}
-\end{aligned}
+&=(x'x)^{-1}x'\sum\,x(x'x)^{-1}
+\end{align}
 </td></tr></table>
